@@ -2,7 +2,7 @@ var themeSwitcher = {}
 
 themeSwitcher.options = {
   setdefaulttheme: true,
-  defaulttheme: "light",
+  defaulttheme: "",
   debug: true,
   rememberlasttheme: true,
   transitionduration: '1s',
