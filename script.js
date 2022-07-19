@@ -5,8 +5,6 @@ themeSwitcher.options = {
   defaulttheme: "",
   debug: false,
   rememberlasttheme: true,
-  transitionduration: '1s',
-  transitioneffect: 'ease-in',
   checkjQuery: true
 }
 
