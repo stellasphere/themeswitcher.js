@@ -6,11 +6,18 @@ themeSwitcher.options = {
   debug: true,
   rememberlasttheme: true,
   transitionduration: '1s',
-  transitioneffect: 'ease-in'
+  transitioneffect: 'ease-in',
+  checkjQuery: true
 }
 
-themeSwitcher.setup = async function() {
-  if (typeof jQuery !== "function") {
+themeSwitcher.setup = async function(options) {
+  options = options || {}
+
+  Object.assign(themeSwitcher.options,options)
+
+  tsdebug("Options:",themeSwitcher.options)
+  
+  if((typeof jQuery !== "function") && (themeSwitcher.options.checkjQuery)) {
     tsdebug("jQuery Not Present")
     await themeSwitcher.utils.addjQuery()
     tsdebug("jQuery Added")
@@ -24,6 +31,8 @@ themeSwitcher.setup = async function() {
     } else {
       tsdebug("Previous theme not found.")
       if(themeSwitcher.options.setdefaulttheme) {
+        tsdebug("Setting default theme")
+        
         var defaulttheme = themeSwitcher.options.defaulttheme
         tsdebug("Applying default theme:",defaulttheme)
         themeSwitcher.change(defaulttheme)
@@ -32,6 +41,8 @@ themeSwitcher.setup = async function() {
     }
   } else {
     if(themeSwitcher.options.setdefaulttheme) {
+      tsdebug("Setting default theme")
+        
       var defaulttheme = themeSwitcher.options.defaulttheme
       tsdebug("Applying default theme:",defaulttheme)
       themeSwitcher.change(defaulttheme)
