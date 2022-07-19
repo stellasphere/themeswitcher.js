@@ -3,7 +3,7 @@ var themeSwitcher = {}
 themeSwitcher.options = {
   setdefaulttheme: true,
   defaulttheme: "",
-  debug: true,
+  debug: false,
   rememberlasttheme: true,
   transitionduration: '1s',
   transitioneffect: 'ease-in',
